@@ -41,9 +41,9 @@ public class SongCollection{
     //Sorts Songs through selection
     public void selectionSort(String field){
         // Sort by swapping smallest with first element of unsorted part
-        // i is the index of the first element of the unsorted part…
+        // i is the index of the first element of the unsorted part
         for (int i = 0; i < songCollection.size() - 1; i++){
-            // Finding index of smallest value of the unsorted part…
+            // Finding index of smallest value of the unsorted part
             Song min = songCollection.get(i);
             int minIndex = i;
             for (int j = i+1; j < songCollection.size(); j++) 
