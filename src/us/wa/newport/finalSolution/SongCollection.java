@@ -53,7 +53,7 @@ public class SongCollection{
                     minIndex = j;
                 }
             }
-            // swap smallest value its proper place
+            // swap smallest value its proper place.
             Song temp = songCollection.get(i);
             songCollection.set(i, min);
             songCollection.set(minIndex, temp);
