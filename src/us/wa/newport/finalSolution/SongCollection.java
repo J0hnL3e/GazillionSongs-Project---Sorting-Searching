@@ -66,6 +66,8 @@ public class SongCollection{
         ArrayList<Song> temp = new ArrayList<Song>(0);
         mergeSort(songCollection, 0, n - 1, temp, field);
         }  
+    
+    //Recursive helper Method for MergeSort sort method
     public static void mergeSort(ArrayList<Song> input, int from, int to, ArrayList<Song> temp, String field){
         if (from < to){
             int middle = (from + to)/ 2;
@@ -74,6 +76,8 @@ public class SongCollection{
             merge(input, from, middle, to, temp, field);
         }
     }
+    
+    //Non-recursive helper method for MergeSort sort method
     private static void merge(ArrayList<Song> input, int from, int mid, int to, ArrayList<Song> temp, String field) {
         int i = from;
         int j = mid + 1;

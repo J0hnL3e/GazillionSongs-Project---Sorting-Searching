@@ -1,10 +1,9 @@
 package us.wa.newport.finalSolution;
-
 import java.io.FileNotFoundException;
 import java.io.*;
 import java.util.*;
 public class GazillionSongs 
-//Travis Test #2
+//Client Code [Gets input file name, command, and output file name and performs command's function]
 {
 	public static void main(String[] args) throws FileNotFoundException {
 		//Greeting!!
@@ -13,7 +12,7 @@ public class GazillionSongs
         System.out.print("Please enter input file: ");
         String inputFileName = console.nextLine();
         File file = new File(inputFileName);
-        //Checking for file existence
+        //Checking for file existence before file creation
         while (file.exists() == false){
             System.out.println("Input file does not exist. Please enter an existing file name");
             System.out.print("Please enter correct input file: ");
@@ -30,6 +29,7 @@ public class GazillionSongs
         String command = console.nextLine();
         String[] commandParts = command.split(":");
         //System exit without proper command format
+        //Branching of function depending on command
         if (commandParts[0].equals("filter"))
             main.filter(commandParts[1], commandParts[2]);
         else if (commandParts[0].equals("insertionSort"))
@@ -43,25 +43,25 @@ public class GazillionSongs
         }
         System.out.print("Please enter output file: ");
         String outputFileName = console.nextLine();
+        //Check for incorrect/invalid output file name
         if (outputFileName.contains(":"))
         	System.out.println("Incorrect file name. Exiting...");
         else{
         	 File outFile = new File(outputFileName);
-        
-        
         	 //Confirm overwrite only when file exists and user says yes
         	 if (outFile.exists() == true){
         		 System.out.print("Overwrite existing text? ");
         		 if (console.next().equals("Yes")){
         			 PrintStream output = new PrintStream(new File(outputFileName));
-                	main.printSongs(output);
-                	System.out.println("File successfully overwritten");
+        			 main.printSongs(output);
+        			 System.out.println("File successfully overwritten");
         		 }
         	 }
         	 else {
         		 PrintStream output = new PrintStream(new File(outputFileName));
         		 main.printSongs(output);
         	 }
+        	 //Closing scanners/System for no resource leak
         	 console.close();
         	 in.close();
         	 System.gc();
